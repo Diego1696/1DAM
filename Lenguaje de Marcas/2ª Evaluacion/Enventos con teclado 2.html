@@ -1,0 +1,26 @@
+<html>
+<head><title>Eventos de teclado</title>
+	
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+$(document).ready(function(){
+	$("#escribe").keydown(function(event){
+			$("#parrafo").text("La tecla "+String.fromCharCode(event.which)+" esta presionada");
+			$("#escribe").val("");
+	});
+	$("#escribe").keyup(function(event){
+			$("#parrafo").text("No estas pulsando ninguna tecla");
+			$("#escribe").val("");
+	});
+	
+});
+</script>
+</head>
+<body>
+<p>
+<input type="text" id="escribe" value="">
+</p>
+<p id="parrafo">
+</p>
+</body>
+</html>

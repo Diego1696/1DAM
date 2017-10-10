@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Ejercicio 1 del examen</title>
+
+<style type="text/css">
+#bloque1{position:absolute; left:400px; top:50px; width:300px; height:300px; background-color:black}
+</style>
+
+<script languaje="JavaScript">
+function cambiar(){
+	bloque1.style.backgroundColor = seleccion.value;
+}
+</script>
+</head>
+
+<body>
+<select id=seleccion name=seleccion onchange="cambiar()">
+	<option value=red>Rojo
+	<option value=yellow>Amarillo
+	<option value=green>Verde
+	<option value=blue>Azul
+</select>
+
+<div id=bloque1>
+</div>
+
+</body>
+</html>

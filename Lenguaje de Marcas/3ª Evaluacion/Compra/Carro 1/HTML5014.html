@@ -1,0 +1,137 @@
+<html>
+
+<head>
+	<meta content="text/html" charset="utf-8">
+	<title>Carrito</title>
+	<link rel="stylesheet" type="text/css" href="Estilos.css">
+	<script type="text/javascript">
+		window.onload=ver;
+
+		function ver(){
+			document.getElementById("cesta").innerHTML="";
+			if (sessionStorage.length<1)
+				document.getElementById("cesta").innerHTML="<h5>No tienes productos en el carrito.</h5>";
+			else{
+				document.getElementById("cesta").innerHTML="<table class='pro'><tr><td>PRO</td><td>PRECIO</td><td>UNDS</td><td>TOTAL</td><td><img src='Iconos/eliminar.jpg' id='eli' onclick='borrarElemento("+i+")'></td></tr></table>";
+				for (var i = 1; i < 6; i++){
+					if (sessionStorage.getItem("d"+i)!=null){
+						var descripcion=sessionStorage.getItem("d"+i);
+						var precio=sessionStorage.getItem("p"+i);
+						var cantidad=sessionStorage.getItem("c"+i);
+						var precioTotalProducto=parseInt(precio)*parseInt(cantidad);
+						
+						document.getElementById("cesta").innerHTML+="<table class='pro'><tr><td>"+descripcion+"</td><td>"+precio+"</td><td>"+cantidad+"</td><td>"+precioTotalProducto+"</td><td><img src='Iconos/eliminar.jpg' id='eli' onclick='borrarElemento("+i+")'></td></tr></table>";
+						if(sessionStorage.getItem("precioTotal")!=null){
+							document.getElementById("total").innerHTML="<h5>PRECIO TOTAL DE LA COMPRA</h5><table><tr><td>"+sessionStorage.getItem("precioTotal")+"€</td></tr></table>";
+						}else{
+							document.getElementById("total").innerHTML="";
+						}
+					}
+				}
+			}
+		}
+
+		function borrarElemento(indice){
+			var precio=sessionStorage.getItem("p"+indice);
+			var cantidad=sessionStorage.getItem("c"+indice);
+			var precioTotalProducto=parseInt(precio)*parseInt(cantidad);
+			var precioAnterior=sessionStorage.getItem("precioTotal");
+			var precioActual=parseInt(precioAnterior)-precioTotalProducto;
+
+			if(precioActual==0)
+				sessionStorage.removeItem("precioTotal");
+
+			sessionStorage.setItem("precioTotal", precioActual);
+			sessionStorage.removeItem("d"+indice);
+			sessionStorage.removeItem("p"+indice);
+			sessionStorage.removeItem("c"+indice);
+			ver();
+		}
+
+		function almacenar(indice){
+			var descripcion=document.getElementById("d"+indice).innerHTML;
+			var precio=document.getElementById("p"+indice).innerHTML;
+			var cantidad=document.getElementById("c"+indice).value;
+			var precioTotalProducto=parseInt(precio)*parseInt(cantidad);
+
+			if(sessionStorage.getItem("precioTotal"!=null)){
+				var precioAnterior=sessionStorage.getItem("precioTotal");
+				var precioActual=precioTotalProducto+parseInt(precioAnterior);
+				sessionStorage.setItem("precioTotal", precioActual);
+			}else{
+				sessionStorage.setItem("precioTotal", precioTotalProducto);
+			}
+
+			if(sessionStorage.getItem("d"+indice)==null){
+				sessionStorage.setItem("d"+indice, descripcion);
+				sessionStorage.setItem("p"+indice, precio);
+				sessionStorage.setItem("c"+indice, cantidad);
+			}else{
+				var cantidadActual=sessionStorage.getItem("c"+indice);
+				var cantidadTotal=parseInt(cantidadActual)+parseInt(cantidad);
+				sessionStorage.setItem("c"+indice, cantidadTotal);
+			}
+			ver();
+		}
+	</script>
+</head>
+
+<body>
+	<div id="principal">
+		<h1>TIENDA ONLINE</h1>
+		<div id="productos">
+			<table>
+				<tr><tr><th>IMAGEN</th><th>DESCRIPCION</th><th>PRECIO</th><th>CANTIDAD</th><th>COMPRAR</th></th></tr>
+				<tr>
+					<td><img src="Iconos/dell.jpg"></td>
+					<td><span id="d1">Ordenador Dell</span></td>
+					<td><span id="p1">999</span></td>
+					<td><input type="number" id="c1" maxlength="10" value="1"></td>
+					<td><input type="button" value="Comprar" onclick="almacenar(1)"></td>
+				</tr>
+
+				<tr>
+					<td><img src="Iconos/Sony.jpg"></td>
+					<td><span id="d2">Ordenador Sony</span></td>
+					<td><span id="p2">999</span></td>
+					<td><input type="number" id="c2" maxlength="10" value="1"></td>
+					<td><input type="button" value="Comprar" onclick="almacenar(2)"></td>
+				</tr>
+
+				<tr>
+					<td><img src="Iconos/Apple.jpg"></td>
+					<td><span id="d3">Ordenador Apple</span></td>
+					<td><span id="p3">999</span></td>
+					<td><input type="number" id="c3" maxlength="10" value="1"></td>
+					<td><input type="button" value="Comprar" onclick="almacenar(3)"></td>
+				</tr>
+
+				<tr>
+					<td><img src="Iconos/pb.jpg"></td>
+					<td><span id="d4">Ordenador PBell</span></td>
+					<td><span id="p4">999</span></td>
+					<td><input type="number" id="c4" maxlength="10" value="1"></td>
+					<td><input type="button" value="Comprar" onclick="almacenar(4)"></td>
+				</tr>
+
+				<tr>
+					<td><img src="Iconos/acer.jpg"></td>
+					<td><span id="d5">Ordenador Acer</span></td>
+					<td><span id="p5">999</span></td>
+					<td><input type="number" id="c5" maxlength="10" value="1"></td>
+					<td><input type="button" value="Comprar" onclick="almacenar(5)"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="carrito">
+			<h4>Estado del carrito.</h4>
+			<div id="cesta"></div>		
+			<div id="total"></div>
+		</div>
+
+		<div id="pie"></div>
+	</div>
+</body>
+
+</html>

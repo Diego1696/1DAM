@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<title>Ejercicio 3</title>
+	<link rel="stylesheet" type="text/css" href="ExamenjQuery Ej3.css">
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".contenedor div").hide();
+			$("ul.tabs li:first").add("activa");
+			$(".contenedor div:first").show();
+			$("ul.tabs li").click(function(){
+			 	$("ul.tabs li").removeClass("activa");
+			 		$(this).addClass("activa")
+			 				$(".contenedor div").hide();
+			 				$("#tabs").slideDown("imagen")
+			 				setTimeout('$("#imagen").attr("src", "imagenes/" + n + ".jpg")',3000);
+			 					var	parrafoAActivar = $(this).find("a").attr('href');
+									$(parrafoAActivar).fadeIn();
+
+			});
+			
+		});
+	</script>
+</head>
+
+<body>
+	<table align=center>
+		<tr>
+			<td>
+				<ul class="tabs">
+					<li><a href="#tab1">Menu1</a></li>
+					<li><a href="#tab2">Menu2</a></li>
+					<li><a href="#tab3">Menu3</a></li>
+					<li><a href="#tab4">Menu4</a></li>
+				</ul>
+				<div class="contenedor">
+					<div id="tab1">
+						<img id="imagen" src="Imagenes/30Qd9A.jpg" height="500px" width="600px">
+					</div>
+					<div id="tab2">
+						<img id="imagen" src="Imagenes/Gibson.png" height="500px" width="600px">
+					</div>
+					<div id="tab3">
+						<img id="imagen" src="Imagenes/Toxic.jpg" height="500px" width="600px">
+					</div>
+					<div id="tab4">
+						<img id="imagen" src="Imagenes/children.jpg" height="500px" width="600px">
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

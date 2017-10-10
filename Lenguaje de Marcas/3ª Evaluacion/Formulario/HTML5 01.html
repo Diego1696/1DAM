@@ -1,0 +1,49 @@
+
+<html>
+<head><title></title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="HTML5 01.css">
+<script language="JavaScript">
+function mostrarEdad(valor){
+	document.getElementById("verEdad").innerHTML = valor;
+}
+
+</script>
+<style>
+</style>
+</head>
+<body background="Imagenes/devil.png">
+	<form>
+		<h2>Formulario HTML5</h2>
+		<p>
+			Nombre: <input type="text" name="nombre" autofocus required>
+		</p>
+		<p>
+			E-mail: <input type="email" name="email" placeholder="Introduzca su email...">
+		</p>
+		<p>
+			Edad: <input type="range" id="edad" name="edad" min="18" max="70" value="35"  onchange="mostrarEdad(this.value)"><span id="verEdad">35</span>
+		</p>
+		<p>
+			Color Favorito: <input type="color" name"color">
+		</p>
+		<p>
+			Web: <input type="url" name="web" autocomplete="on">
+		</p>	
+		<p>
+			Nº PAr de 0 a 10: <input type="number" name="par" min="0" max="10" step="2">
+		</p>
+		<p>
+			Destinatario: <input type="email" name="destinataro" list="listaDestinatarios" required>
+			<dataList id="listaDestinatarios">
+				<option value="admin@salesianos.org">Administracion</option>
+				<option value="cristo@salesianos.org">Cristo</option>
+				<option value="lavirgen@salesianos.org">La Virgen</option>
+			</datalist>
+		</p>
+		<p>
+			<input type="submit">
+		</p>	
+	</form>
+</body>
+</html>

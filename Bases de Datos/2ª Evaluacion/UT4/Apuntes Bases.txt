@@ -1,0 +1,3 @@
+-Convertir la BD congreso a MySQL.
+	AccessToMySQL
+- si funciona trasladar foje y galeria de arte

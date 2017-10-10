@@ -1,0 +1,59 @@
+<html>
+<head><title>Página de movimiento</title>
+<style type="text/css">
+#imagen1{position:absolute; top:200px; left:150px}
+#imagen2{position:absolute; top:50px; left:300px}
+#imagen3{position:absolute; top:200px; left:450px}
+#imagen4{position:absolute; top:350px; left:300px}
+#imagen5{position:absolute; top:350px; left:300px}
+</style>
+<script language="JavaScript">
+puntero=null;
+function cargar(){
+	if(event.srcElement.className=="movil"){
+		puntero=event.srcElement;
+	}
+}
+
+function mover(){
+	if(puntero!=null){
+		puntero.style.left=event.x -75;
+		puntero.style.top=event.y -75;
+	}
+}	
+function soltar(){	
+		if(objeto != null)
+		 if (!(((parseInt(objeto.style.left) + objeto.width) < contenedor.style.left))) ||
+		 (objeto.style.left > (contenedor.style.left+contenedor.width)) ||
+		 ((objeto.style.top + objeto.height) < contenedor.style.top) ||
+		 (objeto.style.top > (contenedor.style.top+contenedor.height)))
+			{puntero.style.display ="none";
+			objeto = null;}
+}
+
+function poner(){
+	puntero = document.getElementById("imagen1");
+}
+function meter(){
+	if(puntero != null){
+		puntero.style.left = event.x -100;
+		puntero.style.top = event.y - 75;
+		
+		if((event.x > parseInt(papelera.style.left)) && (event.y > parseInt(papelera.style.top)))
+			puntero.style.display = "none";
+	}
+}
+</script>
+</head>
+<body onmousedown="cargar()" onmouseup="soltar()"; onmousemove="mover(); return false" onload="poner()" onmousemove="meter()">
+<img id="imagen1" class="movil" src="Imagenes/futbol.jpg" width=200 height=200>
+<img id="imagen2" class="movil" src="Imagenes/vestido.jpg" width=200 height=200>
+<img id="imagen3" class="movil" src="Imagenes/cerilla.jpg" width=200 height=200>
+<img id="imagen4" id="vacia"src="Imagenes/vacia.png" width=200 height=200>
+<img id="imagen5" id="llama"src="Imagenes/llama.jpg" width=200 height=200 hidden="true">
+</body>
+</html>
+
+
+
+

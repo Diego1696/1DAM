@@ -1,0 +1,25 @@
+<html>
+<head><title>Carita Feliz</title>
+	<script type="application/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById("canvas")
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+
+			gradiente.addColorStop(0,'#FFF');
+			gradiente.addColorStop(1,'#000');
+
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0,0, canvas.width, canvas.height);				
+		}
+	};
+			</script>	
+			<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+		</head>
+		<body>
+
+			<canvas id="canvas" width="350" height="350"></canvas>
+
+		</body>
+		</html>

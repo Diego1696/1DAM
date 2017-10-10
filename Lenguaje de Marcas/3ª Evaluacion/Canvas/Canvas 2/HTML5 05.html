@@ -1,0 +1,21 @@
+<html>
+<head><title>Ejercicio canvas 2</title>
+<script type="application/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById("canvas")
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			ctx.fillRect(25, 25, 100, 100);
+			ctx.clearRect(45, 45, 60, 60);
+			ctx.strokeRect(50, 50, 50, 50);
+		}
+	}
+</script>	
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+</head>
+<body>
+
+	<canvas id="canvas" width="150" height="150"></canvas>
+
+</body>
+</html>

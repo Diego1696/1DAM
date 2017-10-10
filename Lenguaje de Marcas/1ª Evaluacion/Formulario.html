@@ -1,0 +1,51 @@
+<html>
+<head><title>Formularios</title>
+</head>
+
+<body>
+<h1 align=center>FORMULARIO</h1>
+
+<form method="post" action="donde van los datos">
+	<table align=center border=2>
+		<tr>
+			<td>Introduce tu nombre : </td>
+			<td><input name="nom_persona" id="nom_persona" type="text" size=50 maxlength=10></td>
+		</tr>
+	
+		<tr>
+			<td>Comunidad autónoma : </td>
+			<td><select name=comunidad id=comunidad>
+				<option value=1>Aragón
+				<option value=2 selected>Galicia
+				<option value=3>Asturias
+			</select></td>
+		</tr>
+	
+		<tr>
+			<td>Sexo : </td>
+			<td>Hombre <input type="radio" name=sexo value="H" checked>
+			Mujer <input type="radio" name=sexo value="M"></td>
+		</tr>
+	
+		<tr>
+			<td>Deportes que te gustan : </td>
+			<td>Fútbol<input type="checkbox" checked>
+			Baloncesto<input type="checkbox">
+			Natación<input type="checkbox">
+			Tenis<input type="checkbox"></td>
+		</tr>
+	
+		<tr>
+			<td>Comentario : </td>
+			<td><textarea name=comentario rows=4 cols=50> Escribe lo que te parezca... </textarea></td>
+		</tr>
+	
+		<tr>
+			<td><input type=reset value=Iniciar></td>
+			<td><input type=submit value=Enviar></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

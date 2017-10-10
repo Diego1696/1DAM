@@ -1,0 +1,144 @@
+Disparadores/Triggers:
+
+	|Insert
+Before	|Update 
+After	|Delete
+	|
+-Nunca consultas de seleccion(SELECT).
+-Aparecen el el campo sobre el que aplicamos cambios.
+
+
+Sintaxis Trigger:
+
+UPDATE:
+
+DROP TRIGGER IF EXISTS "T1(nombre del trigger sin comillas)"//
+CREATE TRIGGER T1
+BEFORE UPDATE ON participantes
+For each row begin 
+INSERT INTO cambios(idparticipante, tipo, fecha)
+VALUES(old.idParticipante,"Modificacion",now()) 
+end
+//
+*la condicion del trigger se escribe entre barras//-----//
+
+
+UPDATE participantes SET idEspecialidad=2 WHERE idparticipante >=5 AND idparticipante <=25
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DELETE:
+
+DROP TRIGGER IF EXISTS "T2(nombre del trigger sin comillas)"//
+CREATE TRIGGER T2
+BEFORE DELETE ON participantes 
+for each row begin 
+INSERT INTO cambios(idParticipante, tipo, fecha)
+VALUES(old.idParticipante,"Borrado",now()) 
+end
+//
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT:
+
+DROP TRIGGER IF EXIST "T3(nombre del trigger sin comillas)"//
+CREATE TRIGGER T3
+AFTER INSERT ON participantes
+For each row begin 
+INSERT INTO cambios(idParticipante, tipo, fecha)
+VALUES(new.idParticipante,"Insercion",now()) 
+end
+//
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Meter datos borrados por el trigger en historico
+
+DROP TRIGGER IF EXISTS "T2(nombre del trigger sin comillas)"//
+CREATE TRIGGER T2
+BEFORE DELETE ON participantes 
+for each row begin 
+INSERT INTO cambios(idParticipante, tipo, fecha)
+VALUES(old.idParticipante,"Borrado",now()) 
+INSERT INTO historico SELECT*FROM particpantes WHERE idparticipante=old.idparticipante
+DELETE FROM cuotas WHERE idparticipante=old.idparticipante;
+end
+//
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP TRIGGER IF EXIST "T3(nombre del trigger sin comillas)"//
+CREATE TRIGGER T3
+AFTER INSERT ON participantes
+For each row begin 
+INSERT INTO cambios(idParticipante, tipo, fecha)VALUES(new.idParticipante,"Insercion",now())
+INSERT INTO cambios(idparticipante, tipo, fecha)SELECT( idparticipante,"Menor Edad", now()) FROM participantes
+WHERE idparticipante=new.idparticipante and TIMESTAMPDIFF(YEAR, fecnac, CURDATE())<18; 
+end
+//
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP TRIGGER IF EXISTS T2//
+CREATE TRIGGER T2
+AFTER INSERT ON reservas
+for each row begin
+UPDATE conductores SET servicio=servicios+1 WHERE idvoluntario= new.idvoluntario;´
+end//
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP TRIGGER IF EXISTS T2//
+CREATE TRIGGER T2
+AFTER INSERT ON reservas
+for each row begin
+UPDATE conductores SET servicio=servicios-1 WHERE idvoluntario= new.idvoluntario;´
+end//
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-Al borrar un vehiculo en la tabla transportes se borra y a la vez se mete en la tabla historico
+
+DROP TRIGGER IF EXISTS T3//
+CREATE TRIGGER T3
+BEFORE DELETE ON vehiculos
+for each row begin
+INSERT INTO historico SELECT*
+FROM vehiculos WHERE idvehiculo=old.idvehiculo;
+UPDATE reservas SET observaciones="Vehiculo
+BORRADO. Ha pasado al HISTORICO" WHERE idVehiculo=old.idVehiculo;
+end// 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

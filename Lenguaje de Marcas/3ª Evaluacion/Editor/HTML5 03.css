@@ -1,0 +1,42 @@
+#principal{
+	width: 600px;
+	padding: 20px;
+	background: red;
+	border-radius: 20px;
+	margin: auto;
+	text-align: center;
+}
+#editor{
+	width: 560px;
+	padding: 15px;
+	background: orange;
+	border-radius: 10px;
+	margin: 10px auto;
+}
+#contenido{
+	width: 500px;
+	min-height: 100px;
+	padding: 10px;
+	background: #F2F2F2;
+	border: 2px solid black;
+	margin: auto;
+	text-align: left;
+}
+#botones{
+	width: 540px;
+	padding: 10px;
+	background: yellow;
+	margin: 10px auto;
+	border-radius:10px;
+}
+.boton{
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+h2{
+	background: black;
+	border-radius: 10px;
+	border: 10px white;
+	color: white;
+}

@@ -1,0 +1,10 @@
+/Arkanoid.class
+/Block.class
+/Bola.class
+/Paleta.class
+/Shape.class
+/target/
+Arkanoid/.classpath
+Arkanoid/.project
+Arkanoid/.settings/*
+Arkanoid/java.policy.applet

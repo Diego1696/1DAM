@@ -1,0 +1,25 @@
+<html>
+<head><title>Carita Feliz</title>
+	<script type="application/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById("canvas")
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			for (var i = 0; i < 6; i++)
+				for (var j = 0; j < 6; j++){
+					ctx.strokeStyle = 'rgb(0,'+Math.floor(255-42.5*i) + ', ' + Math.floor(255-42.5*j)+ ')';
+					ctx.beginPath();
+					ctx.arc(12.5 + (j*25), 12.5 + (i*25), 10, 0, Math.PI*2, true);
+					ctx.stroke();
+				}
+		}
+	};
+			</script>	
+			<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+		</head>
+		<body>
+
+			<canvas id="canvas" width="350" height="350"></canvas>
+
+		</body>
+		</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+
+<style type="text/css">
+td{width:200px; height:300}
+</style>
+
+
+<script languaje="JavaScript">
+
+function cambiar(objeto){
+	bloque0.style.backgroundImage = objeto.style.backgroundImage;
+}
+
+</script>
+</head>
+
+
+<body>
+<table align=center border=0>
+<tr>
+	<td id=bloque0 name=bloque0 colspan=4 style="background-color:black"></td>
+</tr>
+<tr>
+	<td onclick="cambiar(this)" style='background-image: url("imagenes/1.jpg")'</td>
+	<td onclick="cambiar(this)" style='background-image: url("imagenes/2.jpg")'></td>
+	<td onclick="cambiar(this)" style='background-image: url("imagenes/3.jpg")'></td>
+	<td onclick="cambiar(this)" style='background-image: url("imagenes/4.jpg")'></td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head><title></title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="JavaScript">
+function leer(){
+	var db = openDataBase("MiBaseDatos", "1.0", "Comentario sobre BD",2*1024*1024);
+	db.transaction(function(tx){
+		tx.executeSql("SELECT * FROM DATOS", [], function(tx, resultados){
+			var len = resultados.rows.length;
+			msg = "<p>Numero de Filas: " + len + "</p>";
+			document.querySelector("#estado").innerHTML += msg;
+
+			for (i = 0 < len; i++)
+				msg = "<p><b>" + resultados.rows.item(i).codigo + "</b> -" + resultados.rows.item(i).nombre + "</b>;"
+			
+		}, null);
+ 
+	}); 
+}
+</script>
+<style>
+</style>
+</head>
+<body onload="leer()">
+<div id="estado" name="estado">
+	Mensaje de estado.
+</div>
+</body>
+</html>

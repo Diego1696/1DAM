@@ -1,0 +1,47 @@
+<html>
+<head>
+
+<style type="text/css">
+.clase1{position:absolute; left:20px; top:50px; width:300px; background-color:lemonchiffon}
+.clase2{position:absolute; left:400px; top:50px; width:300px; background-color:lightcoral}
+</style>
+
+
+<script languaje="JavaScript">
+	function pasar(){
+		if(bloque1.className == "clase1"){
+			bloque1.className = "clase2";
+			bloque2.className = "clase1";
+		}else{
+			bloque1.className = "clase1";
+			bloque2.className = "clase2";
+		}
+	}
+</script>
+</head>
+
+
+<body>
+
+<div id=bloque1 class=clase1>
+<img src="imagenes/gatitos.jpeg" height=100>
+Posicionamiento absoluto es la 
+capacidad de situar un objeto en 
+cualquier punto de la página web, 
+estableciendo la esquina superior 
+izquierda como punto (0,0), utilizando 
+las propiedades left y top.
+<input type=button value="Pasar" onclick="pasar()">
+</div>
+
+<div id=bloque2 class=clase2>
+<img src="imagenes/1.jpg" height=100>
+Posicionamiento relativo significa 
+que el objeto se sitúa con respecto 
+a su posición original como ocurre 
+de manera natural dentro del código 
+HTML.
+</div>
+
+</body>
+</html>

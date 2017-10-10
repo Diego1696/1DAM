@@ -1,0 +1,23 @@
+<html>
+<head><title>Animacion</title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+$(document).ready(function(){
+	$("button").click(function(){
+		var div = $("div");
+		div.animate({left:'100px'},"slow");
+       	div.animate({fontSize:'3em'}, "slow");
+	});
+});
+
+</script>
+<style type="text/css">
+</style>
+
+</head>
+<body>
+	<button>Iniciar animacion</button>
+	<div style="background: #98bf21; height:100px; width:100px;  position:absolute">FELIZ AÑO</div>
+
+</body>
+</html>

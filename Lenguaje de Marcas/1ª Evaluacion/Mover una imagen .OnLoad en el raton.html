@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Mover imagen</title>
+<style type="text/css">
+#imagen{position:absolute; left:300px; top:150px}
+</style>
+
+<script languaje="JavaScript">
+function mover(){
+	imagen.style.left = event.x -100;
+	imagen.style.top = event.y - 75;
+}
+</script>
+</head>
+
+<body>
+
+<img id=imagen src="imagenes/1.jpg" onmousemove="mover()" width=200 height=150>
+
+</body>
+</html>

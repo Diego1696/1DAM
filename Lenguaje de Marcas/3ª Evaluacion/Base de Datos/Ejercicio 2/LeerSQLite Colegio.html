@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html" charset="utf-8">
+	<title>Data Base SQLite</title>
+	<script type="text/javascript">
+		function leer(){
+			var db=openDatabase("mydatabase","1.0","Comentario",2*1024*1024);
+			db.transaction(function(tx){
+				tx.executeSql("SELECT * FROM DATOS", [], function(tx,resultados){
+					var len=resultados.rows.length;
+					msg="<p>Numero de filas: "+len+"</p>";
+					document.querySelector("#estado").innerHTML+=msg;
+					for (var i = 0; i < len; i++) {
+						msg="<p><b>"+resultados.rows.item(i).codigo+"</b> - "+resultados.rows.item(i).nombre+"</p>";
+						document.querySelector("#estado").innerHTML+=msg;
+					}
+				},null);
+			});
+		}
+	</script>
+</head>
+
+<body onload="leer()">
+	<div id="estado" name="estado">Mensaje de estado
+
+	</div>
+</body>
+
+</html>

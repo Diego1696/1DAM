@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Mover imagen</title>
+<style type="text/css">
+#imagen1{position:absolute; left:50px; top:150px}
+#imagen2{position:absolute; left:300px; top:150px}
+#imagen3{position:absolute; left:550px; top:150px}
+#imagen4{position:absolute; left:800px; top:150px}
+</style>
+
+<script languaje="JavaScript">
+objeto = null;
+
+function cargar(){
+	if(objeto != null)
+		objeto = null;
+	else if(event.srcElement.tagName == "IMG"){
+		objeto = event.srcElement;
+		for(i=0; i<document.images.length; i++)
+			document.images[i].style.zIndex = 0;			
+		objeto.style.zIndex = 1;
+	}
+}
+function mover(){
+	if(objeto != null){
+		objeto.style.left = event.x -100;
+		objeto.style.top = event.y -75;
+	}
+}
+</script>
+</head>
+<body onclick="cargar()" onmousemove="mover()">
+<img id=imagen1 src="imagenes/1.jpg" width=200 height=150 style="z-index:0">
+<img id=imagen2 src="imagenes/2.jpg" width=200 height=150 style="z-index:0">
+<img id=imagen3 src="imagenes/3.jpg" width=200 height=150 style="z-index:0">
+<img id=imagen4 src="imagenes/4.jpg" width=200 height=150 style="z-index:0">
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head><title>Añadir en el body</title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+
+$(document).ready(function(event){
+	$("#mostar").click(function(event){
+		$("#boton").show(4000);
+		$(".imagen").show(4000);
+	});
+	$("#ocultar").click(function(event){
+		$("#boton").hide(4000);
+		$(".imagen").hide(4000);
+	});	
+});
+</script>
+</head>
+<body>
+<input type="button" id="boton" value="Boton aparece y desaparece">
+<img src="Imagenes/papelera.png" width=200 height=200 class="imagen">
+<br><br><br><br>
+<input type="button" id="ocultar" value="Ocultar elementos">
+<br><br><br><br>
+<input type="button" id="mostar" value="Mostrar elementos">
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head><title>Moviendo objetos</title>
+<style type="text/css">
+#circulo{position:absolute; left:100; top:200}
+#cruz{position:absolute; left:500; top:200}
+#evil{position:absolute; left:250; top:200}
+</style>
+<script language="JavaScript">
+objeto=null;
+relieve=2;
+function cargar(){
+	if(event.srcElement.tagName=="IMG"){
+		objeto=event.srcElement;
+		objeto,style.zIndex=relieve;
+		relieve++;
+		}
+}
+function soltar(){
+	if(objeto!=null)
+		objeto=null;
+}
+function mover(){
+	if(objeto!=null){
+		objeto.style.left=event.x -50;
+		objeto.style.top=event.y -50;
+	}
+}
+</script>
+</head>
+<body onmousedown="cargar()" onmouseup="soltar()"; onmousemove="mover(); event.returnValue=false">
+<img id="circulo" src="Imagenes/ff1.jpg" width=200 height=200>
+<img id="cruz" src="Imagenes/ff2.jpg" width=200 height=200>
+<img id="evil" src="Imagenes/ff3.jpg" width=200 height=200>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Marquesina</title>
+
+<script language="JavaScript">
+frase = "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor";
+blancos = "                                                          ";
+n = 1;
+function cargar(){
+	if(n<=58)
+		caja.value = blancos.substring(0, 58-n) + frase.substring(0, n);
+	else
+		caja.value = frase.substring(n-58, n);
+	n++;
+}
+</script>
+</head>
+
+<body onload="setInterval('cargar()', 100)">
+<center>
+
+<h1>Mensaje en un autobús</h1>
+<input name=caja id=caja size=30>
+<input type=button value=Iniciar onclick="n=1">
+</body>
+</html>

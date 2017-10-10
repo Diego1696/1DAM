@@ -1,0 +1,26 @@
+<html>
+<head><title>Ejercicio 3 del examen</title>
+<script languaje="JavaScript">
+n=1;
+function siguiente(){
+	n++;
+	if(n==5)
+		n=1;
+	imagen.src="imagenes/" + (n) + ".jpg";
+}
+function anterior(){
+	n--;
+	if(n==0)
+		n=4;
+	imagen.src="imagenes/" + (n) + ".jpg";
+}
+</script>
+</head>
+<body>
+
+<img id=imagen src="imagenes/1.jpg" width=600 height=350>
+
+<input type=button value=Siguiente onclick="siguiente()" style="position:absolute; top:200px; left:650px">
+<input type=button value=Anterior onclick="anterior()" style="position:absolute; top:240px; left:650px">
+</body>
+</html>

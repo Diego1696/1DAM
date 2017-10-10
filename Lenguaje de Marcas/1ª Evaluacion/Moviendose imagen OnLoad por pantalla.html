@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Ejercicio 5 del examen</title>
+
+<style type="text/css">
+img{position:absolute}
+</style>
+
+<script languaje="JavaScript">
+function direccion(){
+	if((event.keyCode == 97))
+		imagen.style.top = parseInt(imagen.style.top) - 10;
+	if((event.keyCode == 122))
+		imagen.style.top = parseInt(imagen.style.top) + 10;
+}
+function mover(){
+	imagen.style.left = parseInt(imagen.style.left) + 5;
+}
+</script>
+</head>
+
+<body onkeypress="direccion()" onload="setInterval('mover()', 50)">
+<img id=imagen src="imagenes/avion.png" width=200 style="top:200; left:20">
+</body>
+</html>

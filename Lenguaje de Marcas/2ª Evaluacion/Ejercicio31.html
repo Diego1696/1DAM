@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Draggable</title>
+<style>
+#papelera1{
+	position:absolute; left:170px; top: 70px;
+}
+#papelera2{
+	position:absolute; left:270px; top: 70px;
+}
+#papelera3{
+	position:absolute; left:370px; top: 70px;
+}
+#papelera4{
+	position:absolute; left:470px; top: 70px;
+}
+#papelera5{
+	position:absolute; left:570px; top: 70px;
+}
+
+
+</style>
+
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+
+<link rel="stylesheet" href="jquery-ui.css"/>
+
+<script language="JavaScript">
+$(document).ready(function(){
+	tope = 0;
+	izquierda = 0;
+	$(".dibujo").draggable({
+		start:function(event, ui){
+			tope = ui.position.top;
+			izquierda = ui.position.left;
+		},
+		stop:function(event, ui){
+			this.style.top = tope;
+			this.style.left = izquierda;
+		}
+	});
+});
+
+</script>
+</head>
+
+<body>
+<div id="papelera1" class="dibujo"><img src="imagenes/papelera1.jpg" width="100"/></div>
+<div id="papelera2" class="dibujo"><img src="imagenes/papelera1.jpg" width="100"/></div>
+<div id="papelera3" class="dibujo"><img src="imagenes/papelera1.jpg" width="100"/></div>
+<div id="papelera4" class="dibujo"><img src="imagenes/papelera1.jpg" width="100"/></div>
+<div id="papelera5" class="dibujo"><img src="imagenes/papelera1.jpg" width="100"/></div>
+</body>
+
+</html>

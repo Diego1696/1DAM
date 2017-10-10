@@ -1,0 +1,42 @@
+<html>
+<head>
+
+<script languaje="JavaScript">
+function calcular(){
+	switch(operador.value){
+		case "+":
+			resultado.value = parseInt(sumando1.value) + parseInt(sumando2.value);
+			break;
+		case "-":
+			resultado.value = parseInt(sumando1.value) - parseInt(sumando2.value);
+			break;
+		case "*":
+			resultado.value = parseInt(sumando1.value) * parseInt(sumando2.value);
+			break;
+		case "/":
+			resultado.value = parseInt(sumando1.value) / parseInt(sumando2.value);
+	}
+}
+</script>
+</head>
+
+<body>
+<table align=center border=1>
+	<tr><td><input id=sumando1 size=10></td>
+	<td><input id=sumando2 size=10></td></tr>
+	
+	<tr><td colspan=2 align=center>
+	<select id=operador onchange="calcular()">
+		<option value="+">+
+		<option value="-">-
+		<option value="*">*
+		<option value="/">/
+	</select>
+	</td></tr>
+	
+	<tr><td align=center colspan=2><input id=resultado size=10></td></tr>
+	
+</table>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+
+<style type="text/css">
+.valido{width:140; height:150; background-color:yellow}
+.novalido{width:140; height:150; background-color:lime}
+</style>
+</head>
+
+
+<script languaje="JavaScript">
+
+n=0;
+function cambiar(){
+	objeto=event.srcElement;
+	
+	if(objeto.tagName=="TD"){
+		objeto.className="novalido";
+		if(n==0)
+			objeto.innerHTML="<img src=imagenes/cruz.png width=140 height=140>";
+		else
+			objeto.innerHTML="<img src=imagenes/circulo.jpg width=140 height=140>";
+		n= (n+1)%2;  //% da el resto de la división entera.
+	}
+	
+}
+</script>
+
+
+<body onclick="cambiar()">
+<h1 align=center>TRES EN RAYA</h1>
+
+
+<table align=center border=1>
+	<tr><td class=valido></td><td class=valido></td><td class=valido></td></tr>
+	<tr><td class=valido></td><td class=valido></td><td class=valido></td></tr>
+	<tr><td class=valido></td><td class=valido></td><td class=valido></td></tr>
+</table>
+
+
+</body>
+</html>

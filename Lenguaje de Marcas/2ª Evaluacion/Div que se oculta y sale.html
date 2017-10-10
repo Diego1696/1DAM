@@ -1,0 +1,34 @@
+<html>
+<head><title>Añadir en el body</title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+
+$(document).ready(function(event){
+	$("#parrafo").css({
+				width:"200px",
+				height:"15px",
+				backgroundColor:"purple",
+				borderStyle:"solid",
+				borderColor:"red",
+				borderWidth:"3px",
+				fontFamily:"Verdana",
+				padding:"20px",
+				fontSize:"12px",
+				textAlign:"center",
+				color:"black"
+			});
+	$("#boton").click(function(event){
+		$("#parrafo").slideUp(900);
+		$("#parrafo").slideDown(900);
+	});
+	
+});
+</script>
+</head>
+<body>
+<input type="button" id="boton" value="Boton aparece y desaparece">
+<br>
+<div id="parrafo">Hola y adios</div>
+<br>
+</body>
+</html>

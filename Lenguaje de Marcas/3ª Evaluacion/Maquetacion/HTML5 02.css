@@ -1,0 +1,75 @@
+#web{
+	width: 960px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 10px #000;
+	border-radius: 20px;
+}
+header{
+	padding: 1px;
+	background-color: #3B5998;
+	text-align: center;
+	border-radius: 20px 20px 0px 0px;
+	color: white;
+}
+nav{
+	background-color: #132d63;
+	padding: 2px;
+	text-align: center;
+}
+nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+}
+nav ul>li{
+	display: inline-block;
+	width: 150px;
+	color: white;
+	background-color: #6E8CCC;
+	border: 1px outset #6E8CCC;
+	cursor: pointer;
+	padding: 2px;
+}
+#contenido{
+	background-color: yellow;
+	min-height: 450px;
+	padding: 1%;
+	width: 78%;
+	float: left;
+}
+#contenido section{
+	width: 35%;
+	float: left;
+	padding: 2%;
+	border:1px dashed #3B5998;
+}
+#contenido section article div{
+	height: 100px;
+	overflow: scroll;
+}
+article{
+	text-align: justify;
+}
+article<div{
+	padding: 5px;
+}
+aside{
+	background-color: yellow;
+	min-height: 450px;
+	width:18%;
+	padding: 1%;
+	float: right;
+}
+aside section{
+	text-align: center; 
+	margin: 2px;
+	border-radius: 20px;
+	min-height: 150px;
+	border-color: white;
+}
+footer{
+	background-color: #3B5998;
+	color: white;
+	text-align: center;
+	padding: 7px;
+}

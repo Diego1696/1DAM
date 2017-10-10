@@ -1,0 +1,1 @@
+aumentar disco, añadir tarjeta de red, añadir disco duro, gestionar usb

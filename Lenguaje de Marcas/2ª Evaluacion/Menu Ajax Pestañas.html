@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<title>Menu AJAX</title>
+	<link rel="stylesheet" type="text/css" href="JQ024.css">
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".contenedor div").hide();
+			$("ul.tabs li:first").add("activa");
+		});
+	</script>
+</head>
+
+<body>
+	<table align=center>
+		<tr>
+			<td>
+				<ul class="tabs">
+					<li><a href="#tab1">Menu1</a></li>
+					<li><a href="#tab2">Menu2</a></li>
+					<li><a href="#tab3">Menu3</a></li>
+					<li><a href="#tab4">Menu4</a></li>
+				</ul>
+				<div class="contenedor">
+					<div>
+						CONTENIDO1
+					</div>
+					<div>
+						CONTENIDO2
+					</div>
+					<div>
+						CONTENIDO3
+					</div>
+					<div>
+						CONTENIDO4
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

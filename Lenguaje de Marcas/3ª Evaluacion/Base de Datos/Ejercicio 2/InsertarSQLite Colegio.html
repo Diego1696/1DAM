@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html" charset="utf-8">
+	<title>Data Base SQLite</title>
+	<script type="text/javascript">
+		function cargar(){
+			var db=openDatabase("mydatabase3","1.0","comentario",2*1024*1024);
+			db.transaction(function(tx){
+				tx.executeSql("CREATE TABLE IF NOT EXISTS DATOS(codigo unique, nombre, apellido)");
+				tx.executeSql("INSERT INTO DATOS (codigo,nombre,apellido) VALUES (1,'diego','cristo')");
+				tx.executeSql("INSERT INTO DATOS (codigo,nombre,apellido) VALUES (2,'ASFAS', 'crusto')");
+				tx.executeSql("INSERT INTO DATOS (codigo,nombre,apellido) VALUES (3,'pepe', 'cresto')");
+				tx.executeSql("INSERT INTO DATOS (codigo,nombre,apellido) VALUES (4,'the frog', 'crasta')");
+				tx.executeSql("INSERT INTO DATOS (codigo,nombre,apellido) VALUES (5,'the fr5g', 'craASDsta')");
+
+
+			});
+		}
+	</script>
+</head>
+
+<body onload="cargar()">
+
+</body>
+
+</html>

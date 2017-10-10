@@ -1,0 +1,45 @@
+<html>
+<head><title>Carita Feliz</title>
+	<script type="application/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById("canvas")
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			//Cuerpo
+			ctx.beginPath();
+			ctx.arc(75, 75, 50, 0, Math.PI*2, true);
+			ctx.closePath();
+			ctx.fill();
+
+			//Boca
+			ctx.fillStyle = '#FFF';
+			ctx.beginPath();
+			ctx.arc(75, 75, 35, 0, Math.PI, false);
+			ctx.closePath();
+			ctx.fill();
+
+			//Ojo Izquierdo
+			ctx.moveTo(65, 75);
+			ctx.beginPath();
+			ctx.arc(65, 65, 5, 0, Math.PI*2, false);
+			ctx.closePath();
+			ctx.fill();
+
+
+			//Ojo Derecho
+			ctx.moveTo(65, 75);
+			ctx.beginPath();
+			ctx.arc(90, 65, 5, 0, Math.PI*2, false);
+			ctx.closePath();
+			ctx.fill();
+			}
+		};
+			</script>	
+			<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+		</head>
+		<body>
+
+			<canvas id="canvas" width="350" height="350"></canvas>
+
+		</body>
+		</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Ejercicio 2 del examen</title>
+
+<style type="text/css">
+#bloque1{position:absolute; left:400px; top:50px; width:300px; height:300px; background-color:blue}
+</style>
+
+<script languaje="JavaScript">
+function ensanchar(){
+	bloque1.style.width = parseInt(bloque1.style.width)+10;
+}
+function estrechar(){
+	bloque1.style.width = parseInt(bloque1.style.width)-10;
+}
+function alzar(){
+	bloque1.style.height = parseInt(bloque1.style.height)+10;
+}
+function encoger(){
+	bloque1.style.height = parseInt(bloque1.style.height)-10;
+}
+</script>
+</head>
+
+
+<body>
+<input type=button value=Ensanchar onclick="ensanchar()">
+<input type=button value=Estrechar onclick="estrechar()">
+<input type=button value=Alzar onclick="alzar()">
+<input type=button value=Encoger onclick="encoger()">
+
+<div id=bloque1 style="width:300; height:300">
+</div>
+</body>
+</html>

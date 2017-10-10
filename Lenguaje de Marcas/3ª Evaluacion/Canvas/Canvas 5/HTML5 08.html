@@ -1,0 +1,30 @@
+<html>
+<head><title>Ejercicio canvas 3</title>
+	<script type="application/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById("canvas")
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			for (var i = 0; i <4; i++){
+				for( var j=0; j<4; j++){
+					ctx.beginPath();
+					var x = 25 + (j*50);
+					var y = 25 + (i*50);
+					var radio = 20;
+					var angInicio = 0;
+					var angFin = Math.PI + (Math.PI * j)/2;
+					var anticlockwise = ((i%2) == 0; false: true);
+					ctx.arc(x, y, radio, angInicio, angFin, true);
+					ctx.fill();
+				}
+			}
+		};
+			</script>	
+			<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+		</head>
+		<body>
+
+			<canvas id="canvas" width="150" height="150"></canvas>
+
+		</body>
+		</html>

@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Carrito de la compra</title>
+<script type="application/javascript">
+	window.onload = ver;
+	var i = ["altavoces", "auricular", "portatil", "sobremesa", "tablet", "memoria"];
+	function ver(){
+		document.getElementById("cesta").innerHTML = "";
+		if(sessionStorage.length>1)
+			document.getElementById("cesta").innerHTML = "<h5>No tienes productos en el carrito</h5>";	
+		else
+			document.getElementById("cesta").innerHTML = "<table class='pro'><tr><td>PRO</td><td>UNDS</td></tr></table>";
+
+		for(i=0; i<6; i++)
+			if(sessionStorage.getItem(productos[i]) != null)	
+				document.getElementById("cesta").innerHTML += "<table class='pro'><tr><td>" + productos[i] + "</td><td>" + sessionStorage.getItem(productos[i]) + "</td><td><img src='iconos2/eliminar.jpg' id='eli' onclick=borrarElemento('" + productos[i] + "')><td></tr></table>";
+
+	function leer(){
+				var db=openDatabase("base","0","examen",2*1024*1024);
+				db.transaction(function(tx){
+					tx.executeSql("SELECT * FROM Productos", [], function(tx,resultados){
+						var len=resultados.rows.length;
+						var productos = ["altavoces", "auricular", "portatil", "sobremesa", "tablet", "memoria"];
+						for (var i = 0; i < len; i++) {
+							msg="<a href='' id='"+productos[i]+"' onclick='almacenar(this.id);return false;'><p><b><img src='Productos/"+productos[i]+".jpg'></a> - "+resultados.rows.item(i).codigo+"</b> - "+resultados.rows.item(i).precio+"</p>";
+						document.querySelector("#estado").innerHTML+=msg;						}
+					},null);
+				});
+			}
+	
+	}
+	
+	function almacenar(codigo){
+					if(sessionStorage.getItem(codigo) == null){
+					sessionStorage.setItem(codigo, 1);
+				}else{
+					sessionStorage.setItem(codigo, parseInt(sessionStorage.getItem(codigo)) + 1);
+				}
+				leer();
+			}
+	function insertar(){
+		var db = openDatabase("MiBaseDatos", "1.0", "Comentario sobre BD", 2 * 1024 * 1024);
+	db.transaction(function(tx){
+		tx.executeSql("INSERT INTO compras");
+	});	
+	}
+
+</script>
+
+</head>
+<body onload="ver()">
+<div id="estado" name="estado">
+	<h1>TIENDA ONLINE</h1>
+	<div>
+		<table style="margin: 0 auto;" border=" 1px"; align= center>
+			<tr><th>IMAGEN</th><th>DESCRIPCIÓN</th></tr>
+			<tr>
+				<td><a href="" onclick="almacenar('altavoces'); return false"><img src="productos/altavoces.jpg" ></a></td>
+				<td><span id="d1">Altavoces</span>
+				<h1>17,25€</h1></td>
+			</tr>	
+			<tr>
+				<td><a href="" onclick="almacenar('auricular'); return false"><img src="productos/auricular.jpg"></a></td>
+				<td><span id="d2">Auriculares</span>
+				<h1>12,69€</h1></td>
+			</tr>
+			<tr>
+				<td><a href="" onclick="almacenar('portatil'); return false"><img src="productos/portatil.jpg"></a></td>
+				<td><span id="d3">Portatil</span>
+				<h1>399,00€</h1></td>
+			</tr>
+			<tr>
+				<td><a href="" onclick="almacenar('sobremesa'); return false"><img src="productos/sobremesa.jpg"></a></td>
+				<td><span id="d4">Sobremesa</span><h1>486,54€</h1></td>
+			</tr>
+			<tr>
+				<td><a href="" onclick="almacenar('tablet'); return false"><img src="productos/tablet.jpg"></a></td>
+				<td><span id="d5">Tablet</span>
+				<h1>149,89</h1></td>
+			</tr>
+			<tr>
+				<td><a href="" onclick="almacenar('memoria'); return false"><img src="productos/memoria.jpg"></a></td>
+				<td><span id="d5">Memoria</span>
+				<h1>89,95€</h1></td>
+			</tr>
+		</table>	
+	</div>
+	<div id="carrito">
+		<h4>Este es el estado del carrito</h4>
+		Comprador: <input type="text" name="Comprador">
+		<br>
+		<a href="" onclick="insertar()"; return false><input type="button" value="Insertar en Compras" name="Insertar en Compras"></a>
+		<div id="cesta"></div>
+		<div id="total"></div>
+	</div>
+	<div id="pie"></div>
+</div>
+</body>
+
+</html>
